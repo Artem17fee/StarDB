@@ -1,40 +1,41 @@
-
 export default class SwapiService {
-    _apiBase = 'https://swapi.co/api';
 
-    async getResource(url) {
-        const res = await fetch(`${this._apiBase}${url}`);
-        
-        if (!res.ok) {
-            throw new Error(`Could not fetch ${url}` +
-            `, received ${res.status}`)
-        }
-        return await res.json();
-    }
-    async getAllPeople() {
-        const res = await this.getResource(`/people/`);
-        return res.results;
-    }
+  _apiBase = 'https://swapi.co/api';
 
-    getPerson(id) {
-        return this.getResource(`/people/${id}/`);
-    }
+  async getResource(url) {
+    const res = await fetch(`${this._apiBase}${url}`);
 
-    async getAllPlanets() {
-        const res = await this.getResource(`/planets/`);
-        return res.results;
+    if (!res.ok) {
+      throw new Error(`Could not fetch ${url}` +
+        `, received ${res.status}`)
     }
+    return await res.json();
+  }
 
-    getPlanet(id) {
-        return this.getResource(`/planets/${id}/`);
-    }
+  async getAllPeople() {
+    const res = await this.getResource(`/people/`);
+    return res.results;
+  }
 
-    async getAllStarhips() {
-        const res = await this.getResource(`/starships/`);
-        return res.results;
-    }
+  getPerson(id) {
+    return this.getResource(`/people/${id}/`);
+  }
 
-    getStarhip(id) {
-        return this.getResource(`/starships/${id}/`);
-    }
+  async getAllPlanets() {
+    const res = await this.getResource(`/planets/`);
+    return res.results;
+  }
+
+  getPlanet(id) {
+    return this.getResource(`/planets/${id}/`);
+  }
+
+  async getAllStarships() {
+    const res = await this.getResource(`/starships/`);
+    return res.results;
+  }
+
+  getStarship(id) {
+    return this.getResource(`/starships/${id}/`);
+  }
 }
